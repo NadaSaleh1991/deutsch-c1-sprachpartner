@@ -1,0 +1,154 @@
+:root {
+  --bg: #0f1420;
+  --panel: #182036;
+  --panel-2: #212b47;
+  --text: #eef1f8;
+  --muted: #9aa4c0;
+  --accent: #6fb1ff;
+  --accent-2: #7fe8c3;
+  --danger: #ff6f6f;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: linear-gradient(180deg, #0f1420, #131a2c 60%, #0f1420);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app-header {
+  padding: 2.5rem 1.5rem 1rem;
+  text-align: center;
+}
+.app-header h1 { margin: 0 0 0.4rem; font-size: 1.9rem; }
+.app-header p { color: var(--muted); margin: 0; }
+
+.view {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+.hidden { display: none !important; }
+
+.options-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.option-group { flex: 1; min-width: 220px; }
+.option-group label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.4rem; }
+.option-group select, .option-group input {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #33406b;
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.scenario-card {
+  background: var(--panel);
+  border: 1px solid #263258;
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+.scenario-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.scenario-card .emoji { font-size: 1.8rem; }
+.scenario-card h3 { margin: 0.5rem 0 0.3rem; font-size: 1.05rem; }
+.scenario-card p { margin: 0.2rem 0; color: var(--muted); font-size: 0.87rem; }
+.scenario-card .goal { color: var(--accent-2); margin-top: 0.5rem; font-size: 0.85rem; }
+
+.session-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+.muted { color: var(--muted); font-size: 0.9rem; margin: 0.2rem 0 0; }
+
+.primary-btn, .danger-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #0f1420;
+  font-weight: 600;
+}
+.primary-btn { background: var(--accent-2); }
+.danger-btn { background: var(--danger); flex-shrink: 0; }
+
+.status-indicator {
+  text-align: center;
+  padding: 0.6rem;
+  border-radius: 10px;
+  background: var(--panel-2);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.status-indicator.listening { color: var(--accent-2); }
+.status-indicator.speaking { color: var(--accent); }
+
+.transcript {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-height: 300px;
+}
+.bubble {
+  max-width: 75%;
+  padding: 0.7rem 1rem;
+  border-radius: 14px;
+  line-height: 1.4;
+}
+.bubble.tutor { background: var(--panel-2); align-self: flex-start; border-bottom-left-radius: 4px; }
+.bubble.student { background: #2a4a3d; align-self: flex-end; border-bottom-right-radius: 4px; }
+
+#feedback-content { display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 1.5rem; }
+.cefr-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #0f1420;
+  font-weight: 700;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+}
+.score-row { display: flex; align-items: center; gap: 0.7rem; margin: 0.35rem 0; }
+.score-label { width: 220px; font-size: 0.88rem; color: var(--muted); }
+.score-bar-track { flex: 1; height: 8px; background: var(--panel-2); border-radius: 4px; overflow: hidden; }
+.score-bar-fill { height: 100%; background: var(--accent-2); }
+.feedback-card { background: var(--panel); border-radius: var(--radius); padding: 1.1rem; }
+.feedback-card h3 { margin-top: 0; }
+.correction-item { background: var(--panel-2); border-radius: 10px; padding: 0.7rem 0.9rem; margin-bottom: 0.6rem; }
+.correction-item .wrong { color: var(--danger); text-decoration: line-through; }
+.correction-item .right { color: var(--accent-2); font-weight: 600; }
+
+.error-banner {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--danger);
+  color: #201010;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  max-width: 90%;
+}

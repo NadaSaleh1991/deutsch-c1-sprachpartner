@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deutsch C1 Sprachpartner</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>🗣️ Deutsch C1 Sprachpartner</h1>
+    <p>Übe reale C1-Gespräche im Rollenspiel — per Stimme, mit einer KI-Gesprächspartnerperson.</p>
+  </header>
+
+  <main id="setup-view" class="view">
+    <section class="options-row">
+      <div class="option-group">
+        <label for="mode-select">Modus</label>
+        <select id="mode-select">
+          <option value="immersive">Immersiv (nur Deutsch, keine Unterbrechungen)</option>
+          <option value="teacher">Lehrer-Modus (kurze Korrekturen zwischendurch)</option>
+        </select>
+      </div>
+      <div class="option-group">
+        <label for="native-language">Deine Muttersprache (für Erklärungen/Auswertung)</label>
+        <input id="native-language" type="text" value="Englisch" />
+      </div>
+    </section>
+
+    <h2>Szenario wählen</h2>
+    <div id="scenario-grid" class="scenario-grid"></div>
+  </main>
+
+  <main id="session-view" class="view hidden">
+    <section class="session-header">
+      <div>
+        <h2 id="session-title"></h2>
+        <p id="session-goal" class="muted"></p>
+      </div>
+      <button id="end-session-btn" class="danger-btn">Sitzung beenden</button>
+    </section>
+
+    <div id="status-indicator" class="status-indicator">Verbindung wird aufgebaut …</div>
+
+    <div id="transcript" class="transcript"></div>
+  </main>
+
+  <main id="feedback-view" class="view hidden">
+    <h2>Deine Auswertung</h2>
+    <div id="feedback-content"></div>
+    <button id="restart-btn" class="primary-btn">Neues Szenario üben</button>
+  </main>
+
+  <div id="error-banner" class="error-banner hidden"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
